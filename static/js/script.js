@@ -36,14 +36,15 @@ function validateForm(event) {
 }
 
 function matchPasswords(passwordInput, confirmPasswordInput) {
+  const message = 'Wachtwoorden zijn niet gelijk aan elkaar'
   passwordInput.setCustomValidity('')
   confirmPasswordInput.setCustomValidity('')
   
   if (passwordInput.value !== confirmPasswordInput.value) {
-    confirmPasswordInput.setCustomValidity('Wachtwoorden zijn niet gelijk aan elkaar')
+    confirmPasswordInput.setCustomValidity(message)
     confirmPasswordMessage.innerText = confirmPasswordInput.validationMessage
 
-    greeting(confirmPasswordInput.validationMessage)
+    greeting(confirmPasswordMessage)
 
     return false
   }
