@@ -8,15 +8,17 @@
 
   <title>Progressive Enhancement Form</title>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/static/css/style.css">
 
-  <script src="script.js" defer></script>
+  <script src="/static/js/script.js" defer></script>
 </head>
 
 <body>
-  <form method="GET" action="/geregistreerd.html" autocomplete="off">
+
+  <form method="GET" action="/geregistreerd.html">
     <h2>Registreren</h2>
-    <fieldset>
+    <fieldset id="personalInformation">
       <legend>Persoonlijke informatie</legend>
       <div>
         <label for="name">Naam</label>
@@ -31,9 +33,8 @@
       </div>
     </fieldset>
 
-    <fieldset>
+    <fieldset id="passwords">
       <legend>Stel wachtwoord in</legend>
-
       <div>
         <label for="password">Wachtwoord</label>
         <input type="password" id="password" name="password" required>
@@ -49,7 +50,7 @@
 
     <button type="submit">Verstuur</button>
   </form>
-</body>
 
+</body>
 </html>
 

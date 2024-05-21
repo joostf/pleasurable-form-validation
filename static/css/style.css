@@ -44,10 +44,10 @@
     display:grid;
   }
 
-  @container (min-width: 30em) {
+  @container (min-width: 35em) {
     form {
 
-      min-width:35vw;
+      min-width:42vw;
       max-width: 60ch;
     }
   }
@@ -135,13 +135,10 @@
   fieldset.repaired:valid::after {
     --deg:0deg;
     translate: 0 0;
-    transition:translate 1s 5s, rotate 1s 5s;
-    
   }
 
   fieldset.repaired:valid div:first-of-type input {
     --deg:0;
-    transition:1s 5s;
   }
 
   /* legend */
@@ -171,7 +168,7 @@
     border-radius: var(--border-radius);
     font-family: inherit;
     color:inherit;
-    transition:.25s;
+    transition:translate .25s, rotate .25s;
   }
 
   /* input states */
@@ -250,3 +247,9 @@
     margin-bottom: 0;
   }   
   
+  input#password.broken {
+    background-image: url("../img/broken-glass.jpeg");
+    background-size: 5rem 5rem;
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+  }
