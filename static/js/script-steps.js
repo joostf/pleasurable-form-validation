@@ -11,7 +11,7 @@ function validateForm(event) {
   // 04. Valideren of de wachtwoorden matchen
   passwordsMatch = matchPasswords(passwordInput, confirmPasswordInput)
 
-  // 05. Valideren of alle velden wel of niet goed zijn ingevuld
+  // 05. Valideren of alle velden goed zijn ingevuld
   if (!passwordsMatch || !form.checkValidity() ) {
     formFields.filter(field => !field.checkValidity())
               .forEach(field => field.classList.add('invalid'))
@@ -20,5 +20,6 @@ function validateForm(event) {
     event.preventDefault()
   } else {
     // 07. Als alles goed is ingevuld het formulier versturen
+    // post naar de api met fetch()
   }
 }

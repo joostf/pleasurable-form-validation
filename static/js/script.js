@@ -1,4 +1,6 @@
-/* VARIABLES */
+// 🚧
+
+/* VARIABLES 📦 */
 const form = document.querySelector('form')
 const formFields = Array.from(form.elements)
 const personalInformation = formFields.find(field => field.id == 'personalInformation')
@@ -8,11 +10,11 @@ const confirmPasswordInput = formFields.find(field => field.id == 'repeat-passwo
 const confirmPasswordMessage = confirmPasswordInput.nextElementSibling
 
 
-/* CODE LOGIC */
+/* CODE LOGIC 🖖 */
 form.noValidate = true
 form.addEventListener('submit', validateForm)
 
-/* FUNCTIONS */
+/* FUNCTIONS 🏗️ */
 function validateForm(event) {
   let passwordsMatch = false
 
@@ -22,17 +24,20 @@ function validateForm(event) {
     field.addEventListener('keyup', validateForm)
   })
 
+  playSound('typing')
+
   passwordsMatch = matchPasswords(passwordInput, confirmPasswordInput)
 
   if (!passwordsMatch || !form.checkValidity() ) {
     formFields.filter(field => !field.checkValidity())
               .forEach(field => field.classList.add('invalid'))
     
-    playSound('typing')
-
     event.preventDefault()
     event.stopImmediatePropagation()
-  } 
+  } else {
+    // post gebruiker naar de server fetch()
+  }
+
 }
 
 function matchPasswords(passwordInput, confirmPasswordInput) {
@@ -44,7 +49,7 @@ function matchPasswords(passwordInput, confirmPasswordInput) {
     confirmPasswordInput.setCustomValidity(message)
     confirmPasswordMessage.innerText = confirmPasswordInput.validationMessage
 
-    greeting(confirmPasswordMessage)
+    greet(confirmPasswordMessage)
 
     return false
   }
@@ -59,7 +64,7 @@ function validateField() {
   this.classList.toggle('invalid', !(this.checkValidity()))
 }
 
-function greeting(message) {
+function greet(message) {
   const text = `Hey, ${message.innerText}`
   const utterance = new SpeechSynthesisUtterance(text)
   utterance.lang = 'nl-NL'
